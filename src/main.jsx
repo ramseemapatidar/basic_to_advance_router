@@ -17,17 +17,17 @@ import Index from "./routes/index";
       loader: rootLoader,
       action: rootAction,
       children: [
-        {
-            index: true,
-            element: <Index />
-        },
-        {
-          path: "contacts/:contactId",
-          element: <Contact />,
-          loader: contactLoader,
-          action: contactAction,
-        },
-        {
+      {
+        errorElement: <ErrorPage />,
+        children: [
+          { index: true, element: <Index /> },
+          {
+            path: "contacts/:contactId",
+            element: <Contact />,
+            loader: contactLoader,
+            action: contactAction,
+          },
+          {
             path: "contacts/:contactId/edit",
             element: <EditContact />,
             loader: contactLoader,
@@ -38,7 +38,9 @@ import Index from "./routes/index";
             action: destroyAction,
             errorElement: <div>Oops! There was an error.</div>,
           },
-      ],
+        ],
+      },
+    ],
     },
 
 
