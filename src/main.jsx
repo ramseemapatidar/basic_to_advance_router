@@ -30,6 +30,7 @@ import { action as destroyAction } from "./routes/destroy";
           {
             path: "contacts/:contactId/destroy",
             action: destroyAction,
+            errorElement: <div>Oops! There was an error.</div>,
           },
       ],
     },
